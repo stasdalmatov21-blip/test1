@@ -1,8 +1,11 @@
 from aiogram.types import Message
+from aiogram import Router
 from aiogram.fsm.context import FSMContext
 from keyboards import ROADMAP_BUTTONS, create_keyboard
 from data import PROFESSIONS_TABLE, ARCHETYPE_NAMES, CONVERSION_EXAMPLES
 from states import TechTransition
+
+router = Router()
 
 async def show_results(message: Message, state: FSMContext):
     data = await state.get_data()
