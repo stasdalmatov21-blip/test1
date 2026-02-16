@@ -11,14 +11,14 @@ router = Router()
 async def vug_chosen(callback: CallbackQuery, state: FSMContext):
     vug_code = callback.data.replace('vug_', '')
     vug_names = {
-        'T-1': 'Т‑1 Командование',
-        'T-2': 'Т‑2 Связь',
-        'T-3': 'Т‑3 РЭБ / РЛС',
-        'T-4': 'Т‑4 БПЛА',
-        'T-5': 'Т‑5 Автобронетанк',
-        'T-6': 'Т‑6 Инженерные',
-        'T-7': 'Т‑7 Навигация',
-        'T-8': 'Т‑8 Защита информации'
+        'T-1': ' Командование',
+        'T-2': ' Связь',
+        'T-3': ' РЭБ / РЛС',
+        'T-4': ' БПЛА',
+        'T-5': ' Автобронетанк',
+        'T-6': ' Инженерные',
+        'T-7': ' Навигация',
+        'T-8': ' Защита информации'
     }
     vug_name = vug_names.get(vug_code, vug_code)
     await state.update_data(vug=vug_code, vug_name=vug_name)
@@ -26,7 +26,7 @@ async def vug_chosen(callback: CallbackQuery, state: FSMContext):
     await state.set_state(TechTransition.waiting_for_archetype)
     keyboard = create_keyboard(ARCHETYPE_BUTTONS)
     await callback.message.edit_text(
-        "<b>Выберите ваш архетип:</b>\n\n"
+        "Выберите ваш архетип:\n\n"
         "Какой стиль управления и мышления вам ближе?",
         reply_markup=keyboard
     )
