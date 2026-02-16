@@ -10,10 +10,10 @@ router = Router()
 async def cmd_start(message: Message, state: FSMContext):
     await state.clear()
     await message.answer(
-        "⚡ <b>ТОЧКА ТЕХНОЛОГИЧЕСКОГО ПЕРЕХОДА</b> ⚡\n\n"
+        "⚡ ТОЧКА ТЕХНОЛОГИЧЕСКОГО ПЕРЕХОДА ⚡\n\n"
         "Вы — профессионал с уникальным опытом. Сейчас вы находитесь на пороге кардинальных перемен.\n"
         "Этот бот поможет вам найти ТОЧКУ ОПОРЫ в гражданской техносфере.\n\n"
-        "<b>За 5 минут вы узнаете:</b>\n"
+        "За 5 минут вы узнаете:\n"
         "• Ваши родственные гражданские специальности (технологическое лидерство)\n"
         "• Как конвертировать военные компетенции\n"
         "• Персональную дорожную карту развития\n\n"
@@ -26,7 +26,7 @@ async def cmd_next(message: Message, state: FSMContext):
     await state.set_state(TechTransition.waiting_for_vug)
     keyboard = create_keyboard(VUG_BUTTONS, row_width=2)
     await message.answer(
-        "<b>Выберите вашу военно-учётную группу (ВУГ):</b>\n\n"
+        "Выберите вашу военно-учётную группу (ВУГ):\n\n"
         "Это определит вектор перехода в технологическом секторе.",
         reply_markup=keyboard
     )
