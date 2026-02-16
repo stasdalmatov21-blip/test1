@@ -44,23 +44,23 @@ async def show_results(message: Message, state: FSMContext):
     
     # Формируем итоговый текст
     result_text = (
-        f"🎯 <b>ВАШ ПРОФИЛЬ ТЕХНОЛИДЕРА</b>\n\n"
-        f"<b>Военно-учётная группа:</b> {vug_name}\n"
-        f"<b>Архетип:</b> {archetype_name}\n\n"
-        f"<b>💼 Целевые гражданские позиции:</b>\n{professions}\n\n"
+        f"🎯 ВАШ ПРОФИЛЬ ТЕХНОЛИДЕРА\n\n"
+        f"Военно-учётная группа: {vug_name}\n"
+        f"Архетип: {archetype_name}\n\n"
+        f"💼 Целевые гражданские позиции:\n{professions}\n\n"
     )
     
     if strengths:
-        result_text += "<b>✅ Ваши сильные стороны:</b>\n" + "\n".join(strengths) + "\n\n"
+        result_text += "✅ Ваши сильные стороны:\n" + "\n".join(strengths) + "\n\n"
     
     if weaknesses:
-        result_text += "<b>📌 Зоны роста:</b>\n" + "\n".join(weaknesses) + "\n\n"
+        result_text += "📌 Зоны роста:\n" + "\n".join(weaknesses) + "\n\n"
     
-    result_text += "<b>🔁 Примеры конвертации опыта:</b>\n"
+    result_text += "🔁 Примеры конвертации опыта:\n"
     for ex in CONVERSION_EXAMPLES:
         result_text += ex + "\n"
     
-    result_text += "\n<b>Теперь выберите трек развития:</b>"
+    result_text += "\nТеперь выберите трек развития:"
     
     await state.set_state(TechTransition.waiting_for_roadmap)
     keyboard = create_keyboard(ROADMAP_BUTTONS)
