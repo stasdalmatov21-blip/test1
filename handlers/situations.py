@@ -60,9 +60,9 @@ async def process_situation(callback: CallbackQuery, state: FSMContext):
     
     answer = callback.data.replace('situ_', '')
     answer_text = {
-        'yes': '✅ Да, справляюсь',
-        'part': '⚠️ Частично, есть пробелы',
-        'no': '❌ Нет, не сталкивался'
+        'yes': '✅ Да',
+        'part': '⚠️ Частично',
+        'no': '❌ Нет'
     }.get(answer, answer)
     
     # Сохраняем ответ
